@@ -1,0 +1,32 @@
+{
+    head:{text:'I2C Start - Drive conflict'},
+    signal: [
+	  ['SYS.',
+      {name: 'rst#',      wave: '1..0.1|...........' },
+      ],
+
+      ['CONT.',
+      {name: 'CONTROLLER state', node: 'L..M.N.O......P  QR'},
+      {name: 'SDA IO',           wave: 'z.....|...........' }, 
+      {name: 'SCL IO',           wave: 'n..0.z|n.......z.0' },
+      ],
+      ['TARGET',
+      {name: 'SDA IO',       wave: '0.z0....z........' }, 
+      {name: 'SCL IO',       wave: 'z................' },
+      {name: 'bit postion',          node: '543...210'},
+      {name: 'TARGET state', node: 'W...... .XY      ZV'},
+      ],
+      ["BUS",
+      {name: 'SDA',       wave: '0.u0.....u........' }, 
+      {name: 'SCL',       wave: 'n..u...nnnnnnnnu.' },
+      {name: 'bus state', node: 'A..B..C..D.....E FH' },
+      ]
+  ],
+      edge: [
+       'L+M read', 'M+N reset', 'O+P bus "reset"','Q+R START',
+       'W+X TX', 'X+Y nack', "Y+Z idle (send complete)",'Z+V RX',
+       'A+B read target', 'B+C sys reset', 'C+D hung','E+F idle', 'F+H S',
+    ],
+      
+    config: {hscale:1}
+  }
