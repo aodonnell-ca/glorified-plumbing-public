@@ -1,7 +1,21 @@
 @startuml
 
 title Empty Diagram - i2c-tx-state.puml
-:hello;
-:World;
+
+state Idle
+state Start
+state addr as "Send Address"
+state data as "Send Data"
+state Restart
+state stop
+
+[*] --> Idle
+Idle --> Start
+Start --> addr
+addr --> data
+data --> stop : Transaction\ncomplete
+data --> Restart : Change to read\nafter addr/cmd\nphase
+Restart --> addr
+stop --> Idle
 
 @enduml
