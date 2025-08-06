@@ -1,0 +1,7 @@
+@startuml
+
+title Empty Diagram - i2c-tx-state.puml
+:hello;
+:World;
+
+@enduml
