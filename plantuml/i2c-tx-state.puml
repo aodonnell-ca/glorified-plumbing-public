@@ -13,9 +13,9 @@ state stop
 Idle --> Start
 Start --> addr
 addr --> data
-data --> stop : Transaction\ncomplete
-data --> Restart : Change to read\nafter addr/cmd\nphase
-Restart --> addr
-stop --> Idle
+data -left> Restart : Change to read\nafter addr/cmd\nphase
+Restart -> addr
+data -right> stop : Transaction\ncomplete
+stop -up> Idle
 
 @enduml
