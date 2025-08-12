@@ -1,0 +1,7 @@
+@startuml
+
+title Empty Diagram - NegativeTime.puml
+:hello;
+:World;
+
+@enduml
