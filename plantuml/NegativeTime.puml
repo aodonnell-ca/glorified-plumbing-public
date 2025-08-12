@@ -1,7 +1,71 @@
 @startuml
+title I2C Timing Diagram
 
-title Empty Diagram - NegativeTime.puml
-:hello;
-:World;
+binary "SDA" as SDA
+concise "SDA" as data
+binary "SCL" as SCL
+highlight -3 to 0 : idle
+highlight 0 to 1 : start
+highlight 1 to 8 : address
+highlight 8 to 9 : dir
+highlight 9 to 10 : ack
+highlight 10 to 11 : data
 
+@-3 
+SCL is high
+SDA is high
+data is "pullup"
+@-0.5
+SDA is low
+data is "start"
+
+@1
+SCL is low
+SDA is {low,high}
+data is "A6"
+@1.5
+SCL is high
+@2
+SCL is low
+data is "A5"
+@2.5
+SCL is high
+@3
+SCL is low
+data is "A4"
+@3.5 
+SCL is high
+@4
+SCL is low
+data is "A3"
+@4.5 
+SCL is high
+@5
+SCL is low
+data is "A2"
+@5.5 
+SCL is high
+@6 
+SCL is low
+data is "A1"
+@6.5 
+SCL is high
+@7 
+SCL is low
+data is "A0"
+@7.5 
+SCL is high
+@8
+SCL is low
+data is "R/W#"
+@8.5 
+SCL is high
+@9
+SCL is low
+SDA is low
+data is "ACK"
+@9.5 
+SCL is high
+@10
+data is "D7"
 @enduml
